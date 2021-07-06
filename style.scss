@@ -30,9 +30,13 @@ $Dark-Mode-Text-Light-Mode-Elements: hsl(0, 0%, 100%);
   box-sizing: border-box;
 }
 
+:focus {
+  outline: none;
+}
+
 body {
   font-family: 'Nunito Sans', sans-serif;
-  overflow-x: hidden;
+  font-size: $HomePage-font-size;
 }
 
 .container {
@@ -40,6 +44,108 @@ body {
   width: 1440px;
   max-width: 100%;
   margin: 0 auto;
-  padding: 0 3rem;
+  padding: 0 4rem;
   overflow: hidden;
+}
+
+.navbar {
+  background-color: $Dark-Mode-Text-Light-Mode-Elements;
+
+  .container {
+    justify-content: space-between;
+    margin: 1rem auto;
+
+    .title {
+      h1 {
+        font-weight: $font-weight-600;
+      }
+    }
+
+    .themeSwitcher {
+      display: flex;
+
+      p {
+        margin-left: 0.5rem;
+        font-weight: $font-weight-300;
+      }
+    }
+  }
+}
+
+.homePage {
+  background-color: $Light-Mode-Background;
+
+  .container {
+    height: calc(100vh - 3.5rem);
+
+    .search-Filter {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      width: 100%;
+      margin: 2rem 0;
+
+      .search {
+        background: white;
+        border-radius: 5px;
+        width: 35%;
+
+        i {
+          padding-left: 1.5rem;
+          color: $Light-Mode-Input;
+        }
+
+        .searchInput {
+          border: none;
+          padding: 1rem;
+          width: 80%;
+        }
+      }
+
+      .filter {
+        background: white;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        padding-right: 1.5rem;
+        position: relative;
+
+        .filterByCountries {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          .filterRegion {
+            padding: 1rem 2.5rem 1rem 1.5rem;
+          }
+        }
+
+        ul {
+          display: none;
+        }
+
+        ul.show {
+          display: block;
+          list-style: none;
+          position: absolute;
+          top: 115%;
+          right: 0;
+          width: 100%;
+          background: white;
+          border-radius: 5px;
+          cursor: pointer;
+          padding: 1rem 1.5rem 0 1.5rem;
+
+          li {
+            margin-bottom: 0.8rem;
+          }
+
+          &:last-child {
+            margin-bottom: 0.7rem;
+          }
+        }
+      }
+    }
+  }
 }
