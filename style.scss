@@ -20,6 +20,8 @@ $Light-Mode-Input: hsl(0, 0%, 52%);
 $Light-Mode-Background: hsl(0, 0%, 98%);
 $Dark-Mode-Text-Light-Mode-Elements: hsl(0, 0%, 100%);
 
+$Box-Shadow: 0px 0px 8px 2px rgba($color: #000000, $alpha: 0.2);
+;
 //Reset
 
 *,
@@ -76,19 +78,20 @@ body {
   background-color: $Light-Mode-Background;
 
   .container {
-    height: calc(100vh - 3.5rem);
+    flex-wrap: wrap;
 
     .search-Filter {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
       width: 100%;
-      margin: 2rem 0;
+      margin: 3rem 0;
 
       .search {
         background: white;
         border-radius: 5px;
         width: 35%;
+        box-shadow: $Box-Shadow;
 
         i {
           padding-left: 1.5rem;
@@ -110,6 +113,7 @@ body {
         cursor: pointer;
         padding-right: 1.5rem;
         position: relative;
+        box-shadow: $Box-Shadow;
 
         .filterByCountries {
           display: flex;
@@ -143,6 +147,47 @@ body {
 
           &:last-child {
             margin-bottom: 0.7rem;
+          }
+        }
+      }
+    }
+
+    .countries {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      width: 100%;
+
+      .country {
+        background: $Dark-Mode-Text-Light-Mode-Elements;
+        width: 22%;
+        margin-bottom: 5rem;
+        border-radius: 5px;
+        box-shadow: $Box-Shadow;
+
+        .countryImage {
+
+          img {
+            border-radius: 5px;
+            width: 100%;
+          }
+        }
+
+        .countryInfos {
+          margin: 1.2rem 1.2rem 2rem 1.2rem;
+
+          h4 {
+            font-weight: $font-weight-800;
+            margin-bottom: 0.5rem;
+          }
+
+          h5 {
+            margin-bottom: 0.5rem;
+            font-weight: $font-weight-600;
+
+            span {
+              font-weight: $font-weight-300;
+            }
           }
         }
       }

@@ -59,7 +59,8 @@ body {
 }
 
 .homePage .container {
-  height: calc(100vh - 3.5rem);
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .homePage .container .search-Filter {
@@ -73,13 +74,15 @@ body {
       -ms-flex-align: baseline;
           align-items: baseline;
   width: 100%;
-  margin: 2rem 0;
+  margin: 3rem 0;
 }
 
 .homePage .container .search-Filter .search {
   background: white;
   border-radius: 5px;
   width: 35%;
+  -webkit-box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.2);
 }
 
 .homePage .container .search-Filter .search i {
@@ -105,6 +108,8 @@ body {
   cursor: pointer;
   padding-right: 1.5rem;
   position: relative;
+  -webkit-box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.2);
 }
 
 .homePage .container .search-Filter .filter .filterByCountries {
@@ -146,5 +151,49 @@ body {
 
 .homePage .container .search-Filter .filter .filterRegionItems.show:last-child {
   margin-bottom: 0.7rem;
+}
+
+.homePage .container .countries {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 100%;
+}
+
+.homePage .container .countries .country {
+  background: white;
+  width: 22%;
+  margin-bottom: 5rem;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.2);
+}
+
+.homePage .container .countries .country .countryImage img {
+  border-radius: 5px;
+  width: 100%;
+}
+
+.homePage .container .countries .country .countryInfos {
+  margin: 1.2rem 1.2rem 2rem 1.2rem;
+}
+
+.homePage .container .countries .country .countryInfos h4 {
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.homePage .container .countries .country .countryInfos h5 {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.homePage .container .countries .country .countryInfos h5 span {
+  font-weight: 300;
 }
 /*# sourceMappingURL=style.css.map */
