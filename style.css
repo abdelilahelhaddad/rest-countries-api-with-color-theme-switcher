@@ -123,11 +123,11 @@ body {
   padding: 1rem 2.5rem 1rem 1.5rem;
 }
 
-.homePage .container .search-Filter .filter ul {
+.homePage .container .search-Filter .filter .filterRegionItems {
   display: none;
 }
 
-.homePage .container .search-Filter .filter ul.show {
+.homePage .container .search-Filter .filter .filterRegionItems.show {
   display: block;
   list-style: none;
   position: absolute;
@@ -136,15 +136,15 @@ body {
   width: 100%;
   background: white;
   border-radius: 5px;
-  cursor: pointer;
   padding: 1rem 1.5rem 0 1.5rem;
 }
 
-.homePage .container .search-Filter .filter ul.show li {
+.homePage .container .search-Filter .filter .filterRegionItems.show li {
   margin-bottom: 0.8rem;
+  cursor: pointer;
 }
 
-.homePage .container .search-Filter .filter ul.show:last-child {
+.homePage .container .search-Filter .filter .filterRegionItems.show:last-child {
   margin-bottom: 0.7rem;
 }
 /*# sourceMappingURL=style.css.map */

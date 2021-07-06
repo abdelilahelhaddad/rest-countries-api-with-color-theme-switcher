@@ -121,11 +121,11 @@ body {
           }
         }
 
-        ul {
+        .filterRegionItems {
           display: none;
         }
 
-        ul.show {
+        .filterRegionItems.show {
           display: block;
           list-style: none;
           position: absolute;
@@ -134,11 +134,11 @@ body {
           width: 100%;
           background: white;
           border-radius: 5px;
-          cursor: pointer;
           padding: 1rem 1.5rem 0 1.5rem;
 
           li {
             margin-bottom: 0.8rem;
+            cursor: pointer;
           }
 
           &:last-child {
