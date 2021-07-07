@@ -161,14 +161,19 @@ body {
   width: 100%;
   background: white;
   border-radius: 5px;
-  padding: 1rem 1.5rem 0 1.5rem;
+  padding: 0.5rem 0;
   -webkit-box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.2);
           box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.2);
 }
 
 .homePage .container .search-Filter .filter .filterRegionItems.show li {
-  margin-bottom: 0.8rem;
   cursor: pointer;
+  color: #111517;
+  padding: 0.5rem 1.5rem;
+}
+
+.homePage .container .search-Filter .filter .filterRegionItems.show li a {
+  text-decoration: none;
   color: #111517;
 }
 
@@ -268,6 +273,11 @@ body {
 }
 
 .homePage.dark .container .search-Filter .filter .filterRegionItems.show li {
+  color: white;
+}
+
+.homePage.dark .container .search-Filter .filter .filterRegionItems.show li a {
+  text-decoration: none;
   color: white;
 }
 

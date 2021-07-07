@@ -18,11 +18,14 @@ filterByCountries.addEventListener("click", () => {
   filterRegionItems.classList.toggle("show");
 })
 
-//Fetch all countries func
+/*===================
+Fetch countries func
+===================*/
 
 const countries = document.querySelector(".countries");
 
 //https://stackoverflow.com/questions/6784894/add-commas-or-spaces-to-group-every-three-digits
+
 function commafy(num) {
   var str = num.toString().split(',');
   if (str[0].length >= 5) {
@@ -34,8 +37,10 @@ function commafy(num) {
   return str.join(',');
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  fetch(`https://restcountries.eu/rest/v2/all`)
+//Get data func
+
+function fetchCountries(url) {
+  fetch(url)
     .then(response => response.json())
     .then(data => {
       for (let i = 0; i < data.length; i++) {
@@ -58,4 +63,19 @@ document.addEventListener("DOMContentLoaded", () => {
     .catch((err) => {
       console.log(err);
     })
+}
+
+//Get all countries
+
+document.addEventListener("DOMContentLoaded", () => {
+  fetchCountries("https://restcountries.eu/rest/v2/all");
+});
+
+//Get countries based on region
+
+filterRegionItems.addEventListener("click", (e) => {
+  countries.innerHTML = "";
+  let region = e.target.getAttribute('data-region');
+  console.log(region);
+  fetchCountries(`https://restcountries.eu/rest/v2/region/${region}`);
 });
