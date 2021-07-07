@@ -76,6 +76,5 @@ document.addEventListener("DOMContentLoaded", () => {
 filterRegionItems.addEventListener("click", (e) => {
   countries.innerHTML = "";
   let region = e.target.getAttribute('data-region');
-  console.log(region);
   fetchCountries(`https://restcountries.eu/rest/v2/region/${region}`);
 });

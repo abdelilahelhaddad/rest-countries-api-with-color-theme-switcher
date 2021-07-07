@@ -203,7 +203,7 @@ body {
 }
 
 .homePage .container .countries .country .countryImage img {
-  border-radius: 5px;
+  border-radius: 5px 5px 0 0;
   width: 100%;
 }
 
