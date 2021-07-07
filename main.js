@@ -22,6 +22,18 @@ filterByCountries.addEventListener("click", () => {
 
 const countries = document.querySelector(".countries");
 
+//https://stackoverflow.com/questions/6784894/add-commas-or-spaces-to-group-every-three-digits
+function commafy(num) {
+  var str = num.toString().split(',');
+  if (str[0].length >= 5) {
+    str[0] = str[0].replace(/(\d)(?=(\d{3})+$)/g, '$1,');
+  }
+  if (str[1] && str[1].length >= 5) {
+    str[1] = str[1].replace(/(\d{3})/g, '$1 ');
+  }
+  return str.join(',');
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   fetch(`https://restcountries.eu/rest/v2/all`)
     .then(response => response.json())
@@ -35,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
         <div class="countryInfos">
           <h4>${data[i].name}</h4>
-          <h5>Population: <span>${data[i].population}</span></h5>
+          <h5>Population: <span>${commafy(data[i].population)}</span></h5>
           <h5>Region: <span>${data[i].region}</span></h5>
           <h5>Capital: <span>${data[i].capital}</span></h5>
         </div>
