@@ -21,7 +21,7 @@ $Light-Mode-Background: hsl(0, 0%, 98%);
 $Dark-Mode-Text-Light-Mode-Elements: hsl(0, 0%, 100%);
 
 $Box-Shadow: 0px 0px 8px 2px rgba($color: #000000, $alpha: 0.2);
-;
+
 //Reset
 
 *,
@@ -55,20 +55,45 @@ body {
 
   .container {
     justify-content: space-between;
-    margin: 1rem auto;
+    padding: 1rem 4rem;
 
     .title {
       h1 {
         font-weight: $font-weight-600;
+        color: $Light-Mode-Text;
       }
     }
 
     .themeSwitcher {
       display: flex;
+      cursor: pointer;
 
       p {
         margin-left: 0.5rem;
         font-weight: $font-weight-300;
+        color: $Light-Mode-Text;
+      }
+    }
+  }
+}
+
+.navbar.dark {
+  background-color: $Dark-Mode-Elements;
+
+  .container {
+    .title {
+      h1 {
+        color: $Dark-Mode-Text-Light-Mode-Elements;
+      }
+    }
+
+    .themeSwitcher {
+      i::before {
+          color: white;
+        }
+
+      p {
+        color: $Dark-Mode-Text-Light-Mode-Elements;
       }
     }
   }
@@ -122,6 +147,7 @@ body {
 
           .filterRegion {
             padding: 1rem 2.5rem 1rem 1.5rem;
+            color: $Light-Mode-Text;
           }
         }
 
@@ -139,10 +165,12 @@ body {
           background: white;
           border-radius: 5px;
           padding: 1rem 1.5rem 0 1.5rem;
+          box-shadow: $Box-Shadow;
 
           li {
             margin-bottom: 0.8rem;
             cursor: pointer;
+            color: $Light-Mode-Text;
           }
 
           &:last-child {
@@ -190,6 +218,61 @@ body {
             }
           }
         }
+      }
+    }
+  }
+}
+
+.homePage.dark {
+  background-color: $Dark-Mode-Background;
+
+  .container {
+
+    .search-Filter {
+
+      .search {
+        background: $Dark-Mode-Elements;
+
+        i {
+          color: $Dark-Mode-Text-Light-Mode-Elements;
+        }
+
+        .searchInput {
+          background: $Dark-Mode-Elements;
+
+          &::placeholder {
+            color: $Dark-Mode-Text-Light-Mode-Elements;
+          }
+        }
+      }
+
+      .filter {
+        background: $Dark-Mode-Elements;
+        color: $Dark-Mode-Text-Light-Mode-Elements;
+
+        .filterByCountries {
+
+          .filterRegion {
+            color: $Dark-Mode-Text-Light-Mode-Elements;
+          }
+        }
+
+        .filterRegionItems.show {
+          background: $Dark-Mode-Elements;
+          box-shadow: $Box-Shadow;
+
+          li {
+            color: $Dark-Mode-Text-Light-Mode-Elements;
+          }
+        }
+      }
+    }
+
+    .countries {
+
+      .country {
+        background: $Dark-Mode-Elements;
+        color: $Dark-Mode-Text-Light-Mode-Elements;
       }
     }
   }

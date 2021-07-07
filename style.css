@@ -36,22 +36,41 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin: 1rem auto;
+  padding: 1rem 4rem;
 }
 
 .navbar .container .title h1 {
   font-weight: 600;
+  color: #111517;
 }
 
 .navbar .container .themeSwitcher {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  cursor: pointer;
 }
 
 .navbar .container .themeSwitcher p {
   margin-left: 0.5rem;
   font-weight: 300;
+  color: #111517;
+}
+
+.navbar.dark {
+  background-color: #2b3945;
+}
+
+.navbar.dark .container .title h1 {
+  color: white;
+}
+
+.navbar.dark .container .themeSwitcher i::before {
+  color: white;
+}
+
+.navbar.dark .container .themeSwitcher p {
+  color: white;
 }
 
 .homePage {
@@ -126,6 +145,7 @@ body {
 
 .homePage .container .search-Filter .filter .filterByCountries .filterRegion {
   padding: 1rem 2.5rem 1rem 1.5rem;
+  color: #111517;
 }
 
 .homePage .container .search-Filter .filter .filterRegionItems {
@@ -142,11 +162,14 @@ body {
   background: white;
   border-radius: 5px;
   padding: 1rem 1.5rem 0 1.5rem;
+  -webkit-box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.2);
 }
 
 .homePage .container .search-Filter .filter .filterRegionItems.show li {
   margin-bottom: 0.8rem;
   cursor: pointer;
+  color: #111517;
 }
 
 .homePage .container .search-Filter .filter .filterRegionItems.show:last-child {
@@ -195,5 +218,61 @@ body {
 
 .homePage .container .countries .country .countryInfos h5 span {
   font-weight: 300;
+}
+
+.homePage.dark {
+  background-color: #202c37;
+}
+
+.homePage.dark .container .search-Filter .search {
+  background: #2b3945;
+}
+
+.homePage.dark .container .search-Filter .search i {
+  color: white;
+}
+
+.homePage.dark .container .search-Filter .search .searchInput {
+  background: #2b3945;
+}
+
+.homePage.dark .container .search-Filter .search .searchInput::-webkit-input-placeholder {
+  color: white;
+}
+
+.homePage.dark .container .search-Filter .search .searchInput:-ms-input-placeholder {
+  color: white;
+}
+
+.homePage.dark .container .search-Filter .search .searchInput::-ms-input-placeholder {
+  color: white;
+}
+
+.homePage.dark .container .search-Filter .search .searchInput::placeholder {
+  color: white;
+}
+
+.homePage.dark .container .search-Filter .filter {
+  background: #2b3945;
+  color: white;
+}
+
+.homePage.dark .container .search-Filter .filter .filterByCountries .filterRegion {
+  color: white;
+}
+
+.homePage.dark .container .search-Filter .filter .filterRegionItems.show {
+  background: #2b3945;
+  -webkit-box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.2);
+}
+
+.homePage.dark .container .search-Filter .filter .filterRegionItems.show li {
+  color: white;
+}
+
+.homePage.dark .container .countries .country {
+  background: #2b3945;
+  color: white;
 }
 /*# sourceMappingURL=style.css.map */
