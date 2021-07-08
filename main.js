@@ -74,7 +74,28 @@ document.addEventListener("DOMContentLoaded", () => {
 //Get countries based on region
 
 filterRegionItems.addEventListener("click", (e) => {
-  countries.innerHTML = "";
+
   let region = e.target.getAttribute('data-region');
   fetchCountries(`https://restcountries.eu/rest/v2/region/${region}`);
+});
+
+//Search for a country
+
+const searchInput = document.querySelector(".searchInput");
+
+searchInput.addEventListener("keypress", (e) => {
+  let searchInputValue = searchInput.value;
+  if (e.key === 'Enter') {
+    countries.innerHTML = "";
+    fetchCountries(`https://restcountries.eu/rest/v2/name/${searchInputValue}`);
+  }
+});
+
+searchInput.addEventListener("keyup", (e) => {
+  let searchInputValue = searchInput.value;
+  console.log(searchInputValue.length)
+  if (e.key === "Backspace" || e.key === "Delete" && searchInputValue.length === 0) {
+    countries.innerHTML = "";
+    fetchCountries("https://restcountries.eu/rest/v2/all");
+  }
 });
