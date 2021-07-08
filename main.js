@@ -93,7 +93,6 @@ searchInput.addEventListener("keypress", (e) => {
 
 searchInput.addEventListener("keyup", (e) => {
   let searchInputValue = searchInput.value;
-  console.log(searchInputValue.length)
   if (e.key === "Backspace" || e.key === "Delete" && searchInputValue.length === 0) {
     countries.innerHTML = "";
     fetchCountries("https://restcountries.eu/rest/v2/all");
