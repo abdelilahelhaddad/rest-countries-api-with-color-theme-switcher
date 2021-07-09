@@ -39,6 +39,8 @@ function commafy(num) {
 
 //Get data func
 
+const detailPage = document.querySelector(".detailPage");
+
 function fetchCountries(url) {
   fetch(url)
     .then(response => response.json())
@@ -48,7 +50,6 @@ function fetchCountries(url) {
         countryEL.classList.add("country");
         countryEL.setAttribute("data-code", data[i].alpha3Code);
         countryEL.innerHTML = `
-        <a href="detail.html">
         <div data-code="${data[i].alpha3Code}" class="countryImage">
           <img data-code="${data[i].alpha3Code}" src="${data[i].flag}" alt="">
         </div>
@@ -58,9 +59,12 @@ function fetchCountries(url) {
           <h5 data-code="${data[i].alpha3Code}">Region: <span data-code="${data[i].alpha3Code}">${data[i].region}</span></h5>
           <h5 data-code="${data[i].alpha3Code}">Capital: <span data-code="${data[i].alpha3Code}">${data[i].capital}</span></h5>
         </div>
-        </a>
         `;
-        //     
+        countryEL.addEventListener('click', () => {
+          homePage.style.display = 'none';
+          detailPage.style.display = 'flex';
+          // showCountryDetails(country);
+        });
         countries.appendChild(countryEL);
       }
     })
@@ -136,14 +140,14 @@ allCountries.addEventListener("click", (e) => {
           <div class="countryDetailsGroup">
             <div class="firstCountryDetails">
               <h5>Native Name: <span>${data.nativeName}</span></h5>
-              <h5>Population: <span>${data.population}1</span></h5>
+              <h5>Population: <span>${commafy(data.population)}</span></h5>
               <h5>Region: <span>${data.region}</span></h5>
               <h5>Sub Region: <span>${data.subregion}</span></h5>
               <h5>Capital: <span>${data.capital}</span></h5>
             </div>
             <div class="secondCountryDetails">
               <h5>Top Level Domain: <span>${data.topLevelDomain}</span></h5>
-              <h5>Currencies: <span>${data.currencies[1]}</span></h5>
+              <h5>Currencies: <span>${data.currencies[0].code}</span></h5>
               <h5>Languages: <span>${getCountryLanguages(data.languages)}</span></h5>
             </div>
           </div>
