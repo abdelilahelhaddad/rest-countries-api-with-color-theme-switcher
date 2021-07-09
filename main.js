@@ -46,17 +46,21 @@ function fetchCountries(url) {
       for (let i = 0; i < data.length; i++) {
         const countryEL = document.createElement("div");
         countryEL.classList.add("country");
+        countryEL.setAttribute("data-code", data[i].alpha3Code);
         countryEL.innerHTML = `
-        <div class="countryImage">
-          <img src="${data[i].flag}" alt="">
+        <a href="detail.html">
+        <div data-code="${data[i].alpha3Code}" class="countryImage">
+          <img data-code="${data[i].alpha3Code}" src="${data[i].flag}" alt="">
         </div>
-        <div class="countryInfos">
-          <h4>${data[i].name}</h4>
-          <h5>Population: <span>${commafy(data[i].population)}</span></h5>
-          <h5>Region: <span>${data[i].region}</span></h5>
-          <h5>Capital: <span>${data[i].capital}</span></h5>
+        <div data-code="${data[i].alpha3Code}" class="countryInfos">
+          <h4 data-code="${data[i].alpha3Code}">${data[i].name}</h4>
+          <h5 data-code="${data[i].alpha3Code}">Population: <span data-code="${data[i].alpha3Code}">${commafy(data[i].population)}</span></h5>
+          <h5 data-code="${data[i].alpha3Code}">Region: <span data-code="${data[i].alpha3Code}">${data[i].region}</span></h5>
+          <h5 data-code="${data[i].alpha3Code}">Capital: <span data-code="${data[i].alpha3Code}">${data[i].capital}</span></h5>
         </div>
+        </a>
         `;
+        //     
         countries.appendChild(countryEL);
       }
     })
@@ -96,5 +100,63 @@ searchInput.addEventListener("keyup", (e) => {
   if (e.key === "Backspace" || e.key === "Delete" && searchInputValue.length === 0) {
     countries.innerHTML = "";
     fetchCountries("https://restcountries.eu/rest/v2/all");
+  }
+});
+
+const allCountries = document.querySelector(".countries");
+const country = document.querySelectorAll(".country");
+
+function getCountryLanguages(languages) {
+  let language = "";
+  for (let i = 0; i < languages.length; i++) {
+    language += languages[i].name + ", ";
+  }
+  language = language.slice(0, -2);
+  return language
+}
+
+const countryDetails = document.querySelector(".countryDetails");
+
+allCountries.addEventListener("click", (e) => {
+  if (e.target.parentElement.classList.contains("country") || e.target.parentElement.parentElement.classList.contains("country") || e.target.parentElement.parentElement.parentElement.classList.contains("country") || e.target.classList.contains("country")) {
+    const dataCode = e.target.getAttribute("data-code");
+    //https://restcountries.eu/rest/v2/alpha/col
+
+    fetch(`https://restcountries.eu/rest/v2/alpha/${dataCode}`)
+      .then(response => response.json())
+      .then(data => {
+        const detailsEL = document.createElement("div");
+        detailsEL.classList.add("detailCountry");
+        detailsEL.innerHTML = `
+          <div class="flag">
+          <img src="${data.flag}" alt="">
+        </div>
+        <div class="details">
+          <h2 class="countryName">${data.name}</h2>
+          <div class="countryDetailsGroup">
+            <div class="firstCountryDetails">
+              <h5>Native Name: <span>${data.nativeName}</span></h5>
+              <h5>Population: <span>${data.population}1</span></h5>
+              <h5>Region: <span>${data.region}</span></h5>
+              <h5>Sub Region: <span>${data.subregion}</span></h5>
+              <h5>Capital: <span>${data.capital}</span></h5>
+            </div>
+            <div class="secondCountryDetails">
+              <h5>Top Level Domain: <span>${data.topLevelDomain}</span></h5>
+              <h5>Currencies: <span>${data.currencies[1]}</span></h5>
+              <h5>Languages: <span>${getCountryLanguages(data.languages)}</span></h5>
+            </div>
+          </div>
+          <div class="borderCountries">
+            <h5>Border Countries: <span class="borderCountry">France</span><span
+                class="borderCountry">Germany</span><span class="borderCountry">Netherlands</span></h5>
+          </div>
+        </div>
+        `;
+        countryDetails.appendChild(detailsEL);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
   }
 });

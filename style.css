@@ -17,6 +17,16 @@ body {
   font-size: 14px;
 }
 
+a {
+  text-decoration: none;
+}
+
+h4,
+h5,
+span {
+  color: #111517;
+}
+
 .container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -286,7 +296,7 @@ body {
   color: white;
 }
 
-.homePage.dark .container .countries .country {
+.homePage.dark .container .countries a .country {
   background: #2b3945;
   color: white;
 }
@@ -323,6 +333,11 @@ body {
           align-items: center;
 }
 
+.detailPage .container .countryDetails .flag img {
+  width: 460px;
+  height: 340px;
+}
+
 .detailPage .container .countryDetails .details {
   width: 55%;
 }
@@ -355,7 +370,7 @@ body {
 }
 
 .detailPage .container .countryDetails .details .borderCountries {
-  margin-top: 4rem;
+  margin-top: 3rem;
 }
 
 .detailPage .container .countryDetails .details .borderCountries h5 {
