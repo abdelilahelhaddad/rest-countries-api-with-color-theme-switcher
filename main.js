@@ -119,6 +119,14 @@ function getCountryLanguages(languages) {
   return language
 }
 
+function getBorderCountries(borderCountries) {
+  let borderCountry = "";
+  for (let i = 0; i < borderCountries.length; i++) {
+    borderCountry += `<span class="borderCountry">${borderCountries[i]}</span>`;
+  }
+  return borderCountry
+}
+
 const countryDetails = document.querySelector(".countryDetails");
 
 allCountries.addEventListener("click", (e) => {
@@ -153,9 +161,7 @@ allCountries.addEventListener("click", (e) => {
           </div>
           <div class="borderCountries">
             <h5>Border Countries: </h5>
-            <span class="borderCountry">France</span>
-            <span class="borderCountry">Germany</span>
-            <span class="borderCountry">Netherlands</span>
+            ${getBorderCountries(data.borders)}
           </div>
         </div>
         `;
