@@ -3,10 +3,12 @@
 const themeSwitcher = document.querySelector(".themeSwitcher");
 const navbar = document.querySelector(".navbar");
 const homePage = document.querySelector(".homePage");
+const detailPage = document.querySelector(".detailPage");
 
 themeSwitcher.addEventListener("click", () => {
   navbar.classList.toggle("dark");
   homePage.classList.toggle("dark");
+  detailPage.classList.toggle("dark");
 })
 
 //Filter dropdown list func
@@ -38,8 +40,6 @@ function commafy(num) {
 }
 
 //Get data func
-
-const detailPage = document.querySelector(".detailPage");
 
 function fetchCountries(url) {
   fetch(url)
