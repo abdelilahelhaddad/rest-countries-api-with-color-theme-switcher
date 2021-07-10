@@ -152,8 +152,10 @@ allCountries.addEventListener("click", (e) => {
             </div>
           </div>
           <div class="borderCountries">
-            <h5>Border Countries: <span class="borderCountry">France</span><span
-                class="borderCountry">Germany</span><span class="borderCountry">Netherlands</span></h5>
+            <h5>Border Countries: </h5>
+            <span class="borderCountry">France</span>
+            <span class="borderCountry">Germany</span>
+            <span class="borderCountry">Netherlands</span>
           </div>
         </div>
         `;
