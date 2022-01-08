@@ -76,7 +76,7 @@ function fetchCountries(url) {
 //Get all countries
 
 document.addEventListener("DOMContentLoaded", () => {
-  fetchCountries("https://restcountries.eu/rest/v2/all");
+  fetchCountries("https://restcountries.com/v2/all");
 });
 
 //Get countries based on region
@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
 filterRegionItems.addEventListener("click", (e) => {
 
   let region = e.target.getAttribute('data-region');
-  fetchCountries(`https://restcountries.eu/rest/v2/region/${region}`);
+  fetchCountries(`https://restcountries.com/v3.1/region/${region}`);
 });
 
 //Search for a country
@@ -95,7 +95,7 @@ searchInput.addEventListener("keypress", (e) => {
   let searchInputValue = searchInput.value;
   if (e.key === 'Enter') {
     countries.innerHTML = "";
-    fetchCountries(`https://restcountries.eu/rest/v2/name/${searchInputValue}`);
+    fetchCountries(`https://restcountries.com/v2/name/${searchInputValue}`);
   }
 });
 
@@ -103,7 +103,7 @@ searchInput.addEventListener("keyup", (e) => {
   let searchInputValue = searchInput.value;
   if (e.key === "Backspace" || e.key === "Delete" && searchInputValue.length === 0) {
     countries.innerHTML = "";
-    fetchCountries("https://restcountries.eu/rest/v2/all");
+    fetchCountries("https://restcountries.com/v2/all");
   }
 });
 
@@ -132,9 +132,9 @@ const countryDetails = document.querySelector(".countryDetails");
 allCountries.addEventListener("click", (e) => {
   if (e.target.parentElement.classList.contains("country") || e.target.parentElement.parentElement.classList.contains("country") || e.target.parentElement.parentElement.parentElement.classList.contains("country") || e.target.classList.contains("country")) {
     const dataCode = e.target.getAttribute("data-code");
-    //https://restcountries.eu/rest/v2/alpha/col
+    //https://restcountries.com/v2/alpha/col
 
-    fetch(`https://restcountries.eu/rest/v2/alpha/${dataCode}`)
+    fetch(`https://restcountries.com/v2/alpha/${dataCode}`)
       .then(response => response.json())
       .then(data => {
         const detailsEL = document.createElement("div");
