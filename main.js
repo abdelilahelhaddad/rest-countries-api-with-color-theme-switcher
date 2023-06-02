@@ -82,9 +82,9 @@ document.addEventListener("DOMContentLoaded", () => {
 //Get countries based on region
 
 filterRegionItems.addEventListener("click", (e) => {
-
   let region = e.target.getAttribute('data-region');
-  fetchCountries(`https://restcountries.com/v3.1/region/${region}`);
+  countries.innerHTML = "";
+  fetchCountries(`https://restcountries.com/v2/region/${region}`);
 });
 
 //Search for a country
